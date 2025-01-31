@@ -12,19 +12,7 @@
 # 2- Copy following command and paste it in Consoleand then push Enter key:
 # Command: Leverage_critical,Leverage_train,Leverage_test=Leverage_two_sets (Xtrain, Xtest)
 ##################################################################################################################################
-def Leverage_two_sets (Xtrain, Xtest):
-    import numpy as np
-    DIM_train=np.shape(Xtrain)
-    Rows_train=DIM_train[0]
-    Columns_train=DIM_train[1]
-    Leverage_critical=(3*(Columns_train+1))/Rows_train
-    X=np.vstack((Xtrain,Xtest))
-    H=X@np.linalg.inv(np.transpose(X)@X)@np.transpose(X)
-    Leverage=np.diagonal(H)
-    zz=len(Leverage)
-    Leverage_train=Leverage[0:Rows_train]
-    Leverage_test=Leverage[Rows_train:zz]
-    return Leverage_critical,Leverage_train,Leverage_test
+
     
 
 
